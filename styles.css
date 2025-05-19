@@ -167,6 +167,7 @@ section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-bottom: 70px;
 }
 
 .education-section,
@@ -305,4 +306,54 @@ section {
 .close-button:hover {
     background-color: #3F6EE8;
     transform: scale(1.1);
+}
+
+/*Pictures Section Styling*/
+.pictures-section {
+    flex: 1;
+}
+
+.pictures-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 25px;
+}
+
+.pictures-title h2 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #81A5F9;
+}
+
+.pictures-container {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    padding: 10px;
+    cursor: grab;
+    scroll-behavior: auto;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.pictures-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pictures-container:active {
+    cursor: grabbing;
+}
+
+.pictures-container img {
+    width: 20vw;
+    height: 20vw;
+    flex-shrink: 0;
+    border-radius: 5px;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
 }

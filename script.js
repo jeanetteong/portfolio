@@ -1,17 +1,19 @@
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar-right a");
 
-const open_ctss = document.getElementById('open-ctss');
-const open_sp = document.getElementById('open-sp');
-const open_accenture = document.getElementById('open-accenture');
+const openCtss = document.getElementById('open-ctss');
+const openSp = document.getElementById('open-sp');
+const openAccenture = document.getElementById('open-accenture');
 
-const modal_ctss = document.getElementById('modal-ctss');
-const modal_sp = document.getElementById('modal-sp');
-const modal_accenture = document.getElementById('modal-accenture');
+const modalCtss = document.getElementById('modal-ctss');
+const modalSp = document.getElementById('modal-sp');
+const modalAccenture = document.getElementById('modal-accenture');
 
-const close_ctss = document.getElementById('close-ctss');
-const close_sp = document.getElementById('close-sp');
-const close_accenture = document.getElementById('close-accenture');
+const closeCtss = document.getElementById('close-ctss');
+const closeSp = document.getElementById('close-sp');
+const closeAccenture = document.getElementById('close-accenture');
+
+const container = document.getElementById('auto-scroll');
 
 //navbar scroll spy
 const observer = new IntersectionObserver(
@@ -38,44 +40,135 @@ sections.forEach((section) => {
 
 //modal
 //click content box to open
-open_ctss.addEventListener('click', () => {
-    modal_ctss.classList.add('show');
+openCtss.addEventListener('click', () => {
+    modalCtss.classList.add('show');
 })
 
-open_sp.addEventListener('click', () => {
-    modal_sp.classList.add('show');
+openSp.addEventListener('click', () => {
+    modalSp.classList.add('show');
 })
 
-open_accenture.addEventListener('click', () => {
-    modal_accenture.classList.add('show');
+openAccenture.addEventListener('click', () => {
+    modalAccenture.classList.add('show');
 })
 
 //click button to close
-close_ctss.addEventListener('click', () => {
-    modal_ctss.classList.remove('show');
+closeCtss.addEventListener('click', () => {
+    modalCtss.classList.remove('show');
 })
 
-close_sp.addEventListener('click', () => {
-    modal_sp.classList.remove('show');
+closeSp.addEventListener('click', () => {
+    modalSp.classList.remove('show');
 })
 
-close_accenture.addEventListener('click', () => {
-    modal_accenture.classList.remove('show');
+closeAccenture.addEventListener('click', () => {
+    modalAccenture.classList.remove('show');
 })
 
 //click outside to close
-modal_ctss.addEventListener('click', (e) => {
-  if (e.target === modal_ctss) {
-    modal_ctss.classList.remove('show');
+modalCtss.addEventListener('click', (e) => {
+    if (e.target === modalCtss) {
+        modalCtss.classList.remove('show');
+    }
+});
+modalSp.addEventListener('click', (e) => {
+    if (e.target === modalSp) {
+        modalSp.classList.remove('show');
+    }
+});
+modalAccenture.addEventListener('click', (e) => {
+    if (e.target === modalAccenture) {
+        modalAccenture.classList.remove('show');
+    }
+});
+
+//drag and auto scroll pictures
+let isDown = false;
+let startX;
+let scrollLeft;
+let scrollInterval;
+let isDragging = false;
+function cloneImages() {
+  const images = Array.from(container.children);
+  images.forEach(img => {
+    const clone = img.cloneNode(true);
+    container.appendChild(clone);
+  });
+}
+
+// Start auto-scrolling
+function startAutoScroll() {
+  stopAutoScroll(); // Clear previous
+  scrollInterval = setInterval(() => {
+    if (!isDragging) {
+      container.scrollLeft += 1;
+      const scrollMax = container.scrollWidth / 2;
+      if (container.scrollLeft >= scrollMax) {
+        container.scrollLeft = 0;
+      }
+    }
+  }, 20);
+}
+
+function stopAutoScroll() {
+  clearInterval(scrollInterval);
+}
+
+// Mouse down - start dragging
+container.addEventListener('mousedown', (e) => {
+  isDown = true;
+  isDragging = true;
+  stopAutoScroll();
+  startX = e.pageX;
+  scrollLeft = container.scrollLeft;
+  container.style.cursor = 'grabbing';
+});
+
+// Mouse up - stop dragging
+container.addEventListener('mouseup', () => {
+  isDown = false;
+  isDragging = false;
+  container.style.cursor = 'grab';
+  startAutoScroll();
+});
+
+// Mouse leave - stop dragging
+container.addEventListener('mouseleave', () => {
+  if (isDown) {
+    isDown = false;
+    isDragging = false;
+    container.style.cursor = 'grab';
+    startAutoScroll();
   }
 });
-modal_sp.addEventListener('click', (e) => {
-  if (e.target === modal_sp) {
-    modal_sp.classList.remove('show');
+
+// Drag move
+container.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX;
+  const walk = (x - startX) * -1;
+  container.scrollLeft = scrollLeft + walk;
+
+  // Looping logic
+  const scrollMax = container.scrollWidth / 2;
+  if (container.scrollLeft <= 0) {
+    container.scrollLeft += scrollMax;
+    scrollLeft = container.scrollLeft;
+    startX = x;
+  } else if (container.scrollLeft >= scrollMax) {
+    container.scrollLeft -= scrollMax;
+    scrollLeft = container.scrollLeft;
+    startX = x;
   }
 });
-modal_accenture.addEventListener('click', (e) => {
-  if (e.target === modal_accenture) {
-    modal_accenture.classList.remove('show');
-  }
+
+// Disable image dragging for better UX
+container.querySelectorAll('img').forEach(img => {
+  img.setAttribute('draggable', false);
 });
+
+// Init
+cloneImages();
+startAutoScroll();
+container.style.cursor = 'grab';
