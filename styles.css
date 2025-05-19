@@ -167,7 +167,6 @@ section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* gap: 1rem; */
 }
 
 .education-section,
@@ -215,17 +214,6 @@ section {
     font-size: 20px;
 }
 
-/* .content-box:before {
-    position: absolute;
-    content: '';
-    width: 25px;
-    height: 25px;
-    background-color: #81A5F9;
-    border-radius: 50%;
-    left: -48px;
-    top: 87px;
-} */
-
 .timeline-box {
     display: flex;
     flex-direction: column;
@@ -255,4 +243,66 @@ section {
 
 .more-info {
     font-style: italic;
+}
+
+/*Fun Facts Modal Styling*/
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px 40px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.modal h1 {
+    color: #2E2E2E;
+    font-weight: 700;
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+
+.modal ul {
+    color: #2E2E2E;
+    text-align: left;
+    font-size: 15px;
+    padding-bottom: 30px;
+}
+
+.close-button {
+    background-color: #81A5F9;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 25px;
+    transition: transform 0.3s ease, fill 0.3s ease;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #3F6EE8;
+    transform: scale(1.1);
 }
