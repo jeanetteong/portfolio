@@ -535,6 +535,7 @@ section {
     transform: scale(1.1);
 }
 
+
 /*Phone Sizing*/
 @media (max-width: 767px) {
 
@@ -763,5 +764,63 @@ section {
 
     .email-button {
         font-size: 15px;
+    }
+}
+
+/* Tablet Sizing*/
+@media (max-width: 991px) {
+
+    /*Home Page Styling*/
+    .home-section {
+        padding-top: 50px;
+    }
+
+    .home-container {
+        gap: 50px;
+    }
+
+    /*Background Page Styling*/
+    .background-section {
+        padding-left: 50px;
+        padding-right: 10px;
+    }
+
+    .content-box {
+        padding: 15px 20px;
+    }
+
+    .content-box h3 {
+        font-size: 17px;
+    }
+
+    .content-box p {
+        font-size: 14px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    /*Pictures Section Styling*/
+    .pictures-container img {
+        width: 250px;
+        height: 250px;
+    }
+
+    /*Skills Page Styling*/
+    .skills-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    /*Contact Page Styling*/
+    .contact-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .contact-section img {
+        width: 250px;
+        height: 250px;
     }
 }
