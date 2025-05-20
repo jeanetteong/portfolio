@@ -16,6 +16,7 @@ const closeAccenture = document.getElementById('close-accenture');
 const container = document.getElementById('auto-scroll');
 
 //navbar scroll spy
+const thresholdValue = window.innerWidth <= 1199 ? 0.4 : 0.5;
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -30,7 +31,7 @@ const observer = new IntersectionObserver(
   },
   {
     root: null,
-    threshold: 0.5,
+    threshold: thresholdValue,
   }
 );
 

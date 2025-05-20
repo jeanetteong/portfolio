@@ -824,3 +824,56 @@ section {
         height: 250px;
     }
 }
+
+/*Small Laptop Sizing*/
+@media (max-width: 1199px) {
+
+    /*Home Page Styling*/
+    .home-section {
+        padding: 10px 50px 100px 50px;
+    }
+
+    .home-container {
+        gap: 50px;
+    }
+
+    .home-container h1 {
+        font-size: 55px;
+    }
+
+    .home-container img {
+        width: 400px;
+        height: 400px;
+    }
+
+    /*Background Page Styling*/
+    .background-section {
+        padding-left: 60px;
+        padding-right: 40px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    /*Pictures Section Styling*/
+    .pictures-container img {
+        width: 275px;
+        height: 275px;
+    }
+
+    /*Skills Page Styling*/
+    .skills-section {
+        padding: 70px 60px;
+    }
+
+    /*Contact Page Styling*/
+    .contact-section {
+        padding: 70px 60px 100px 60px
+    }
+
+    .contact-section img {
+        width: 275px;
+        height: 275px;
+    }
+}
