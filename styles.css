@@ -25,7 +25,6 @@ section {
     justify-content: space-between;
     align-items: center;
     background-color: #81A5F9;
-    color: white;
     padding: 25px 30px;
     position: sticky;
     top: 0;
@@ -42,6 +41,7 @@ section {
     list-style-type: none;
     display: flex;
     gap: 50px;
+    color: white;
 }
 
 .navbar-right a {
@@ -76,6 +76,120 @@ section {
 
 .navbar-right ul:hover a:hover::after {
     transform: scaleX(1);
+}
+
+/*Hamburger Menu Styling*/
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #81A5F9;
+        padding-top: 80px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-right.active {
+        right: 0;
+    }
+
+    .navbar-right ul {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .navbar-right a {
+        font-size: 24px;
+    }
+
+    .home-container {
+        gap: 50px;
+        padding: 20px;
+    }
+
+    .home-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .home-details h1 {
+        font-size: 40px;
+    }
+
+    .background-section {
+        padding: 50px 20px;
+    }
+
+    .background-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .skills-section {
+        padding: 50px 20px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-section {
+        padding: 50px 20px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .image-container img {
+        width: 50%;
+    }
 }
 
 /* Home Page Styling */
@@ -470,13 +584,13 @@ section {
 .thank-you {
     font-size: 15px;
     text-align: center;
-    padding-bottom:50px;
+    padding-bottom: 50px;
 }
 
 .email-container {
     display: flex;
     justify-content: center;
-    padding-bottom:50px;
+    padding-bottom: 50px;
 }
 
 .email-button {

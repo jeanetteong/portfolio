@@ -17,69 +17,123 @@ const container = document.getElementById('auto-scroll');
 
 //navbar scroll spy
 const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute("id");
-                navLinks.forEach(link => link.classList.remove("active"));
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        navLinks.forEach(link => link.classList.remove("active"));
 
-                const activeLink = document.querySelector(`.navbar-right a[href="#${id}"]`);
-                if (activeLink) activeLink.classList.add("active");
-            }
-        });
-    },
-    {
-        root: null,
-        threshold: 0.5,
-    }
+        const activeLink = document.querySelector(`.navbar-right a[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add("active");
+      }
+    });
+  },
+  {
+    root: null,
+    threshold: 0.3,
+  }
 );
 
 sections.forEach((section) => {
-    observer.observe(section);
+  observer.observe(section);
+});
+
+//hamburger menu
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const navbarRight = document.querySelector('.navbar-right');
+  const navLinks = document.querySelectorAll('.navbar-right a');
+
+  function setActiveLink() {
+    const currentHash = window.location.hash;
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+
+    if (currentHash) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentHash) {
+          link.classList.add('active');
+        }
+      });
+    } else {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === '#home' || link.getAttribute('href') === '/') {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+
+  setActiveLink();
+  window.addEventListener('hashchange', setActiveLink);
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    navbarRight.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      hamburger.classList.remove('active');
+      navbarRight.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!hamburger.contains(event.target) && !navbarRight.contains(event.target)) {
+      hamburger.classList.remove('active');
+      navbarRight.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
 });
 
 //modal
 //click content box to open
 openCtss.addEventListener('click', () => {
-    modalCtss.classList.add('show');
+  modalCtss.classList.add('show');
 })
 
 openSp.addEventListener('click', () => {
-    modalSp.classList.add('show');
+  modalSp.classList.add('show');
 })
 
 openAccenture.addEventListener('click', () => {
-    modalAccenture.classList.add('show');
+  modalAccenture.classList.add('show');
 })
 
 //click button to close
 closeCtss.addEventListener('click', () => {
-    modalCtss.classList.remove('show');
+  modalCtss.classList.remove('show');
 })
 
 closeSp.addEventListener('click', () => {
-    modalSp.classList.remove('show');
+  modalSp.classList.remove('show');
 })
 
 closeAccenture.addEventListener('click', () => {
-    modalAccenture.classList.remove('show');
+  modalAccenture.classList.remove('show');
 })
 
 //click outside to close
 modalCtss.addEventListener('click', (e) => {
-    if (e.target === modalCtss) {
-        modalCtss.classList.remove('show');
-    }
+  if (e.target === modalCtss) {
+    modalCtss.classList.remove('show');
+  }
 });
 modalSp.addEventListener('click', (e) => {
-    if (e.target === modalSp) {
-        modalSp.classList.remove('show');
-    }
+  if (e.target === modalSp) {
+    modalSp.classList.remove('show');
+  }
 });
 modalAccenture.addEventListener('click', (e) => {
-    if (e.target === modalAccenture) {
-        modalAccenture.classList.remove('show');
-    }
+  if (e.target === modalAccenture) {
+    modalAccenture.classList.remove('show');
+  }
 });
 
 //drag and auto scroll pictures
