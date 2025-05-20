@@ -1,3 +1,4 @@
+/* Desktop Sizing*/
 /* General styling */
 * {
     margin: 0;
@@ -111,85 +112,8 @@ section {
 }
 
 .no-scroll {
-  overflow: hidden;
-  height: 100%;
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .navbar-right {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: #81A5F9;
-        padding-top: 80px;
-        transition: right 0.3s ease;
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-right.active {
-        right: 0;
-    }
-
-    .navbar-right ul {
-        flex-direction: column;
-        gap: 30px;
-        padding: 20px;
-    }
-
-    .navbar-right a {
-        font-size: 24px;
-    }
-
-    .home-container {
-        gap: 50px;
-        padding: 20px;
-    }
-
-    .home-image img {
-        width: 250px;
-        height: 250px;
-    }
-
-    .home-details h1 {
-        font-size: 40px;
-    }
-
-    .background-section {
-        padding: 50px 20px;
-    }
-
-    .background-container {
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    .skills-section {
-        padding: 50px 20px;
-    }
-
-    .skills-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .contact-section {
-        padding: 50px 20px;
-    }
-
-    .description {
-        font-size: 16px;
-    }
-
-    .image-container img {
-        width: 50%;
-    }
+    overflow: hidden;
+    height: 100%;
 }
 
 /* Home Page Styling */
@@ -197,7 +121,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 95vh;
     padding-bottom: 100px;
     box-sizing: border-box;
 }
@@ -609,4 +533,235 @@ section {
 .email-button:hover {
     background-color: #3F6EE8;
     transform: scale(1.1);
+}
+
+/*Phone Sizing*/
+@media (max-width: 767px) {
+
+    /*Home Page Styling*/
+    .home-section {
+        padding-bottom: 50px;
+    }
+
+    .home-container {
+        padding-top: 25px;
+        gap: 50px;
+    }
+
+    .home-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .home-image img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .home-details h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .home-details p {
+        text-align: center;
+        padding: 0px 30px;
+        font-size: 13px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .social-icons a svg {
+        width: 25px;
+    }
+
+    /*Hamburger Styling*/
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #81A5F9;
+        padding-top: 80px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-right.active {
+        right: 0;
+    }
+
+    .navbar-right ul {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .navbar-right a {
+        font-size: 24px;
+    }
+
+    /*Background Page Styling*/
+    .background-section {
+        padding: 0px 10px 100px 25px;
+    }
+
+    .background-section h1 {
+        font-size: 30px;
+        color: #2E2E2E;
+        padding-bottom: 15px;
+    }
+
+    .education-section {
+        padding-bottom: 50px;
+    }
+
+    .education-title svg,
+    .pictures-title svg {
+        width: 25px;
+    }
+
+    .experience-title svg {
+        width: 21px;
+    }
+
+    .education-title h2,
+    .experience-title h2,
+    .pictures-title h2 {
+        font-size: 25px;
+    }
+
+    .education-title,
+    .experience-title,
+    .pictures-title {
+        gap: 8px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .content-box {
+        padding: 15px 15px;
+    }
+
+    .date {
+        font-size: 13px;
+    }
+
+    .content-box h3 {
+        font-size: 18px;
+    }
+
+    .content-box p {
+        font-size: 13px;
+    }
+
+    /*Fun Facts Modal Styling*/
+    .modal {
+        margin: 0px 50px;
+    }
+
+    .modal h1 {
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+
+    .modal ul {
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    .close-button {
+        font-size: 13px;
+        padding: 10px 20px
+    }
+
+    /*Pictures Section Styling*/
+    .pictures-title {
+        padding-bottom: 0px;
+    }
+
+    .pictures-container img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /*Skills Page Styling*/
+    .skills-section {
+        padding: 0px 10px 30px 25px
+    }
+
+    .skills-section h1 {
+        font-size: 30px;
+        color: #2E2E2E;
+        padding-bottom: 15px;
+    }
+
+    .skills-container {
+        padding-bottom: 10px;
+    }
+
+    .frontend-title svg,
+    .backend-title svg,
+    .others-title svg {
+        width: 21px;
+    }
+
+    .frontend-title h2,
+    .backend-title h2,
+    .others-title h2 {
+        font-size: 25px;
+    }
+
+    .frontend-title,
+    .backend-title,
+    .others-title {
+        gap: 8px;
+    }
+
+    .tags {
+        padding-top: 0px;
+    }
+
+    .tag {
+        font-size: 13px;
+    }
+
+    /*Contact Page Styling*/
+    .contact-section {
+        padding: 100px 15px 30px 25px
+    }
+
+    .contact-section h1 {
+        font-size: 30px;
+        color: #2E2E2E;
+    }
+
+    .description {
+        font-size: 13px;
+        padding-bottom: 10px;
+    }
+
+    .contact-section img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .thank-you {
+        font-size: 11px;
+    }
+
+    .email-button {
+        font-size: 15px;
+    }
 }
