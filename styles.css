@@ -340,7 +340,7 @@ section {
 }
 
 .pictures-container::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .pictures-container:active {
@@ -356,4 +356,85 @@ section {
     user-select: none;
     pointer-events: none;
     -webkit-user-drag: none;
+}
+
+/*Skills Page Styling*/
+.skills-section {
+    padding: 70px 100px 100px 100px;
+    color: #2E2E2E;
+}
+
+.skills-section h1 {
+    font-size: 60px;
+    font-weight: 700;
+    padding-bottom: 50px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 70px;
+}
+
+.frontend-section,
+.backend-section {
+    flex: 1;
+}
+
+.frontend-title,
+.backend-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 10px;
+}
+
+.frontend-title h2,
+.backend-section h2 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #81A5F9;
+}
+
+.others-section {
+    flex: 1;
+}
+
+.others-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 10px;
+}
+
+.others-title h2 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #81A5F9;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: white;
+    color: #555;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+
+.tag:hover {
+    transform: translateY(2px);
 }
